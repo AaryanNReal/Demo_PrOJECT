@@ -12,7 +12,7 @@ const TabMenu = () => {
   const [activeTab, setActiveTab] = useState("All");
 
   return (
-    <div className="flex gap-2 p-2  ml-2">
+    <div className="flex gap-2 p-2 ">
       {tabs.map((tab) => (
         <button
           key={tab.label}

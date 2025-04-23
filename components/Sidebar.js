@@ -4,7 +4,7 @@ import {
   PlayCircle, Sliders, Bell, CreditCard, Settings, Headphones,
   SettingsIcon
 } from 'lucide-react';
-
+import { useState, useEffect } from 'react';
 // Custom Home icon component using provided SVG
 function HomeIcon({ size = 20 }) {
   return (
@@ -316,7 +316,7 @@ function Settings1Icon({ size = 24 }) {
 
 const items = [
   { icon: <HomeIcon size={20} />, label: 'Dashboard' },
-  { icon: <ContentIcon size={20} />, label: 'Content',active: true},
+  { icon: <ContentIcon size={20} />, label: 'Content', active: true },
   { icon: <ProfileIcon size={20} />, label: 'User' },
   { icon: <TasksIcon size={20} />, label: 'Task' },
   { icon: <AppIcon size={20} />, label: 'App/Web' },
@@ -329,28 +329,47 @@ const items = [
 ];
 
 export default function Sidebar() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 786);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Clean up
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <div className=' border-r bg-white'>
-    <div className="w-[233px] p-3 flex flex-col mt-16 gap-8 border-r font-['Urbanist'] text-[14px]">
-      <div className="flex flex-col gap-3">
-        {items.map((item, idx) => (
-          <div
-            key={idx}
-            className={`flex items-center gap-3 px-3 py-2 rounded-lg 
-              ${item.active ? 'bg-[#1e154e] text-white' : 'text-gray-700 hover:bg-gray-100'}`}
-          >
-            {item.icon}
-            <span className="text-sm">{item.label}</span>
+    <div className='border-r bg-white'>
+      <div className={`${isMobile ? 'w-[75px] mt-14' : 'w-[233px] '} p-3 flex flex-col  gap-8 border-r font-['Urbanist'] text-[14px]`}>
+        <div className={`flex flex-col ${isMobile ? 'mt-0' : 'mt-20'} gap-3`}>
+          {items.map((item, idx) => (
+            <div
+              key={idx}
+              className={`flex items-center gap-3 px-3 py-2 rounded-lg 
+                ${item.active ? 'bg-[#1e154e] text-white' : 'text-gray-700 hover:bg-gray-100'}
+                ${isMobile ? 'justify-center' : ''}`}
+              title={isMobile ? item.label : ''} // Show tooltip on mobile
+            >
+              {item.icon}
+              {!isMobile && <span className="text-sm">{item.label}</span>}
+            </div>
+          ))}
+        </div>
+        <div className="">
+          <div className={`flex items-center gap-3 px-3 py-2 rounded-lg bg-[#eaeaff] text-black ${isMobile ? 'justify-center' : ''}`}>
+            <Headphones size={22} />
+            {!isMobile && <span className="text-sm">Contact Support</span>}
           </div>
-        ))}
-      </div>
-      <div className="">
-        <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#eaeaff] text-black">
-          <Headphones size={22} />
-          <span className="text-sm">Contact Support</span>
         </div>
       </div>
-    </div>
     </div>
   );
 }
