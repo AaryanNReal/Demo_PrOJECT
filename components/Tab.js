@@ -30,7 +30,7 @@ const TabMenu = () => {
   }, []);
 
   return (
-    <div className={`flex gap-1 p-1 overflow-x-auto whitespace-nowrap scrollbar-hide ${isMobile ? 'pb-1' : 'p-2'}`}>
+    <div className={`flex  overflow-x-auto whitespace-nowrap scrollbar-hide ${isMobile ? 'pb-1 gap-0' : 'p-2 gap-1'}`}>
       {tabs.map((tab) => (
         <button
           key={tab.label}
