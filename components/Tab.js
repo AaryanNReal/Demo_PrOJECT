@@ -37,7 +37,7 @@ const TabMenu = () => {
           onClick={() => setActiveTab(tab.label)}
           className={`
             rounded-lg font-medium transition-all shrink-0
-            ${isMobile ? 'px-4 py-1 text-xs w-12' : 'px-4 py-1.5 text-sm'}
+            ${isMobile ? 'px-1 py-1 text-xs w-16' : 'px-4 py-1.5 text-sm'}
             ${
               activeTab === tab.label
                 ? "bg-[#1B103E] text-white"
