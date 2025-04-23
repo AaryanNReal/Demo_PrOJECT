@@ -12,8 +12,8 @@ export default function Home() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 726);
-      if (window.innerWidth >= 726) {
+      setIsMobile(window.innerWidth < 786);
+      if (window.innerWidth >= 786) {
         setSidebarOpen(false);
       }
     };
