@@ -30,14 +30,14 @@ const TabMenu = () => {
   }, []);
 
   return (
-    <div className={`flex  overflow-x-auto whitespace-nowrap scrollbar-hide ${isMobile ? 'pb-1 gap-0' : 'p-2 gap-1'}`}>
+    <div className={`flex  overflow-x-auto whitespace-nowrap scrollbar-hide ${isMobile ? 'pb-1 gap-1' : 'p-2 gap-1'}`}>
       {tabs.map((tab) => (
         <button
           key={tab.label}
           onClick={() => setActiveTab(tab.label)}
           className={`
             rounded-lg font-medium transition-all shrink-0
-            ${isMobile ? 'px-1 py-1 text-xs' : 'px-4 py-1.5 text-sm'}
+            ${isMobile ? 'px-1 py-1 text-xs w-22' : 'px-4 py-1.5 text-sm'}
             ${
               activeTab === tab.label
                 ? "bg-[#1B103E] text-white"
