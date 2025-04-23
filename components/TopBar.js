@@ -22,7 +22,7 @@ export default function TopBar() {
   }, []);
 
   return (
-    <div className={`flex justify-between items-center bg-white shadow-sm ${isMobile ? 'px-2 py-0.5 w-64' : 'px-4 py-1'}`}>
+    <div className={`flex justify-between items-center bg-white shadow-sm ${isMobile ? 'px-2 py-0.5 w-[300px]]' : 'px-4 py-1'}`}>
       {/* Left side - Back button and title */}
       <div className="flex items-center ml-1 space-x-1">
         <ArrowLeft className={`${isMobile ? 'w-4 h-4' : 'w-5 h-5'} text-black`} />

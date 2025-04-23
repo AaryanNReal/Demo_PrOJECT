@@ -25,7 +25,7 @@ export default function ArticleCard({ imageSrc, title, category, date, status, s
     <div
       className={`
         relative rounded-lg overflow-hidden shadow-md text-white
-        ${isMobile ? 'w-[260px] ml-10' : 'w-[360px]'}
+        ${isMobile ? 'w-[260px] ml-12' : 'w-[360px]'}
         ${isMobile ? 'h-[180px]' : 'h-[340px]'}
         transition-all duration-300
         hover:shadow-xl
