@@ -6,7 +6,7 @@ export default function ArticleCard({ imageSrc, title, category, date, status, s
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 786);
+      setIsMobile(window.innerWidth < 726);
     };
 
     // Initial check
