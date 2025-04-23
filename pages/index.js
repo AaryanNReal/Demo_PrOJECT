@@ -29,7 +29,7 @@ export default function Home() {
 
   const getGridColumns = () => {
     if (!isMobile) return 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4';
-    return sidebarOpen ? 'grid-cols-2' : 'grid-cols-2';
+    return sidebarOpen ? 'grid-cols-2' : 'grid-cols-1';
   };
 
   return (

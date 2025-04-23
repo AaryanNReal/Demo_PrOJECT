@@ -333,7 +333,7 @@ export default function Sidebar() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 726);
+      setIsMobile(window.innerWidth < 786);
     };
 
     // Initial check
